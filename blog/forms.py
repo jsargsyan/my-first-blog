@@ -1,15 +1,9 @@
 from django import forms
 
-from .models import Post, Content
+from .models import Post
 
 class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
         fields = ('title', 'text')
-		
-class ContentForm(forms.ModelForm):
-
-    class Meta:
-        model = Content
-        fields = ('content',)
