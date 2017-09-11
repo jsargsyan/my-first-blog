@@ -3,23 +3,16 @@
         <title>Search Name</title>
     </head>
     <body>
-        <div>
-            <h1><a href="">Search Name</a></h1>
-        </div>
-
-		<div>
-			<form action="/action_page.php">
-				Insert name: <input type="text" name="fname"><br>
-				<input type="submit" value="Search">
-			</form>
-        </div>
+	{% block content %}
+		<h1>Search Post</h1>
+		<form method="POST" class="post-form">{% csrf_token %}
+			{{ form.title }}
+			<button type="submit" class="save btn btn-default">Search</button>
+		</form>
+		{{ form.text }}
 		
-        {% for post in posts %}
-			<div>
-				<p>published: {{ post.published_date }}</p>
-				<h1><a href="">{{ post.title }}</a></h1>
-				<p>{{ post.text|linebreaksbr }}</p>
-			</div>
-		{% endfor %}
+
+	{% endblock %}
+	
     </body>
 </html>
